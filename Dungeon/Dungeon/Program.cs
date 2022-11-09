@@ -46,6 +46,24 @@
                 1. Create a collection of room descriptions.
                 2. Randomly print one of those room descriptions to the Console.
              */
+            Console.WriteLine("Get Room Lab");
+
+            Console.WriteLine();
+
+            string[] roomDescriptions =
+            {
+                 "Barracks",
+                 "Storeroom",
+                 "Armoury",
+                 "Mess Hall",
+                 "Throne Room",
+                 
+            };
+
+            Random roompick = new Random();
+            int room = roompick.Next(roomDescriptions.Length);
+            Console.WriteLine(room);
+         
         }
 
 
