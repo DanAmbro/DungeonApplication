@@ -39,7 +39,7 @@
         }//end Main
 
 
-        private static string GetRoom()
+        private static void GetRoom()
         {
             //Requirements:
             /*
@@ -63,6 +63,10 @@
             Random roompick = new Random();
             int room = roompick.Next(roomDescriptions.Length);
             Console.WriteLine(room);
+
+            string userInput = roomDescriptions[room];
+            Console.WriteLine(userInput);
+
          
         }
 
