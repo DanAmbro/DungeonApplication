@@ -7,31 +7,60 @@ using System.Threading.Tasks;
 namespace Dungeon
 {
     public class Weapons
-    {     
-       
-            public string Name { get; set; }
+    {
+        //Fields
+        private int _minDamage;
 
-            public int MinDamage { get; set; }
 
-            public int MaxDamage { get; set; }
+        //Props
 
-            public int BonusHitChance { get; set; }
-
-            public bool IsTwoHanded { get; set; }
-
-            
-
-            public Weapons(string name, int minDamage, int maxDamage, int bonusHitChance, bool isTwoHanded)
+        public int MaxDamage { get; set; }
+        public string Name { get; set; }
+        public int BonusHitChance { get; set; }
+        public bool IsTwoHanded { get; set; }
+        public int MinDamage
+        {
+            get { return _minDamage; }
+            set
             {
-                Name = name;
-                MinDamage = minDamage;
-                MaxDamage = maxDamage;
-                BonusHitChance = bonusHitChance;
-                IsTwoHanded = isTwoHanded;
-                
+                if (value > 0 //Minimum damage must be 1 or greater.
+                    &&
+                    value <= MaxDamage)//Minimum damage cannot be greater than or equal to Max Damage.
+                {
+                    _minDamage = value;
+                }
+                else
+                {
+                    _minDamage = 1;//Default damage is 1.
+                }
             }
+        }
+
+        public WeaponType Type { get; set; }
+
+        //CTORS
+        public Weapons(int maxDamage, string name, int bonusHitChance, bool isTwoHanded, int minDamage, WeaponType type)//FQCTOR
+        {
+            MaxDamage = maxDamage;
+            Name = name;
+            BonusHitChance = bonusHitChance;
+            IsTwoHanded = isTwoHanded;
+            MinDamage = minDamage;
+            Type = type;
 
         }
+
+        public override string ToString()
+        {
+            return string.Format("{0}\t{1} to {2} Damage\n" +
+                "Bonus Hit: {3}%\nType: {4}\t\t{5}",
+                Name,
+                MinDamage,
+                MaxDamage,
+                BonusHitChance,
+                Type,
+                IsTwoHanded ? "Two-Handed" : "One-Handed");
+        }
     }
-}
+
 }
