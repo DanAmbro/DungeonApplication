@@ -13,6 +13,14 @@
             //TODO: Create an instance of the Player class.
             #endregion
 
+            Weapons weapon = new Weapons(70, "sword", 10, true, 35, WeaponType.Sword);
+
+            Player player = new Player(playerName, 70, 5, 100, 100, PlayerRace.Human, weapon);
+
+            //Track the score:
+            int score = 0;
+            //We will update this score whenever the player defeats
+
             #region Gameplay Loop
 
             #region Create Room & Monster

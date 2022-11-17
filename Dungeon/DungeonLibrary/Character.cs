@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dungeon
+namespace DungeonLibrary
 {
-    public class Character
+    public abstract class Character
     {
         //FIELDS
         private int _life;
@@ -41,6 +41,11 @@ namespace Dungeon
             }
         }
 
+        public Character()
+        {
+
+        }
+
         //CONSTRUCTOR
         public Character(string name, int hitChance, int block, int maxLife, int life)//FQCTOR
         {
@@ -63,16 +68,16 @@ namespace Dungeon
         public virtual int CalcBlock()
         {
             return Block;
-        }
+        }//end CalcBlock()
 
         public virtual int CalcHitChance()
         {
             return HitChance;
-        }
+        }//end CalcHitChance()
 
         public virtual int CalcDamage()
         {
             return 0;
-        }
-    }
-}
+        }//end CalcDamage()
+    }//end class
+}//end namespace
