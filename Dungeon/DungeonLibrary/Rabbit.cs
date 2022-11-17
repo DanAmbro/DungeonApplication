@@ -11,7 +11,7 @@ namespace DungeonLibrary
         //Add any unique properties for this Monster.
         public bool IsFluffy { get; set; }
 
-        public Rabbit(string name, string description, int life, int maxlife, int hitChance, int block,
+        public Rabbit(string name, string description, int life, int maxLife, int hitChance, int block,
             int minDamage, int maxDamage, bool isFluffy)
             : base (name, description, hitChance, block, life, maxLife, minDamage, maxDamage)
         //use the base constructor to assign the inherited 
