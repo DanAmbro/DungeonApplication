@@ -13,6 +13,9 @@
             //TODO: Create an instance of the Player class.
             #endregion
 
+            //Track the score:
+            int score = 0;
+
             #region Gameplay Loop
 
             #region Create Room & Monster
