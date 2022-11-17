@@ -50,7 +50,7 @@ namespace DungeonLibrary
             }
         }
 
-        public static void DoBattle(Player player, Monsters monster)
+        public static void DoBattle(Player player, Monster monster)
         {
             DoAttack(player, monster);
 
