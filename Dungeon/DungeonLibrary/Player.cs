@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    internal class Player : Character//Inheritance syntax: Child Class : Parent Class
+    public class Player : Character//Inheritance syntax: Child Class : Parent Class
     {
         //FIELDS
         //_life is inherited from Character.
@@ -22,7 +22,7 @@ namespace DungeonLibrary
         //CONSTRUCTOR
         //We need to take in all the properties as parameters.
         //EVEN the ones that were inherited from Character.
-        public Player(string name, int hitChance, int block, int maxLife, PlayerRace race, Weapon equippedWeapon) : base (name, hitChance, block, maxLife, life)
+        public Player(string name, int hitChance, int block, int maxLife, PlayerRace race, Weapon equippedWeapon) : base (name, hitChance, block, maxLife, Life)
         {
             //We can borrow the assignments for the inherited properties by using the : base syntax above.
             //Name = name;
