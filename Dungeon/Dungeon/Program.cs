@@ -13,6 +13,24 @@
             //TODO: Create an instance of the Player class.
             #endregion
 
+            //Prompt the user to input their name: 
+            Console.WriteLine("What is your Name");
+
+            //Store the user input in a string.
+            string playerName = Console.ReadLine();
+
+            //Construct the Player's weapon:
+            Weapons weapon = new Weapons(70, "sword", 10, true, 35, WeaponType.Sword);
+
+            //Construct the player object:
+            //NOTE: Pass in the user input string as the Name for the Player.
+            Player player = new Player(playerName, 70, 5, 100, 100, PlayerRace.Human, weapon);
+
+            //Track the score:
+            int score = 0;
+            //We will update this score whenever the player defeats a Monster
+            //then display the score to the player when they exit the game.
+
             #region Gameplay Loop
 
             #region Create Room & Monster
