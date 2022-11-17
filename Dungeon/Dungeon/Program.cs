@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine("Hello, there and wlecome to our world!");
             #region Introduction
             //Print a welcome.
             #endregion
@@ -33,25 +33,114 @@
 
             #region Gameplay Loop
 
-            #region Create Room & Monster
+            bool playerIsAlive = true;//COUNTER for the GAMEPLAY LOOP
+            bool playerIsFighting = true;//COUNTER for the COMBAT LOOP
 
-            //TODO: Print a random room description.
-            //TODO: Create an instance of a Monster class at random.
+            do//START OF GAMEPLAY LOOP
+            {
 
-            #endregion
 
-            #region Menu Loop
+                #region Create Room & Monster
 
-            /*
-                TODO: Create menu with options:
-                1) Attack
-                2) Run Away
-                3) Character Info
-                4) Monster Info
-                5) Exit
-             */
+                //TODO: Print a random room description.
+                //TODO: Create an instance of a Monster class at random.
 
-            #endregion
+                #endregion
+
+                #region Menu Loop
+
+                do
+                {
+                    Console.WriteLine("\nChoose your action:\n" +
+                        "A) Attack\n" +
+                        "R) Run Away\n" +
+                        "P) View Player Stats\n" +
+                        "M) View Monster Stats\n" +
+                        "Q) Quit\n");
+
+                    string fightingChoice = Console.ReadLine();
+
+                    Console.Clear();
+
+                    switch (fightingChoice.ToUpper())
+                    {
+                        case "A":
+                            Combat.DoBattle(player, monster);
+
+                            //Check Monster Health
+                            if (monster.Life <= 0)
+                            {
+                                //Use green text to highlight winning combat:
+
+                                //Select a text color by setting the ForegroundColor property
+                                //to an enum value ConsoleColor.
+                                Console.ForegroundColor = ConsoleColor.Green;
+
+                                Console.WriteLine("\nYou killed {0}", monster.Name);
+
+                                //Make sre to reset the color of the Console afterwards.
+                                Console.ResetColor();
+
+                                //Increment the score by one.
+                                score++;
+
+                                //End this COMBAT LOOP
+                                playerIsFighting = false;
+
+                            }
+                            break;
+                        case "R":
+                            Console.WriteLine("Running Away!");
+
+                            //Give the monster an 'attack of opportunity' when the player attempts to run away:
+                            Console.WriteLine($"{monster.Name} attacks you as you attempt to flee!");
+                            Combat.DoAttack(monster, player);
+
+                            playerIsFighting = false;
+                            break;
+                        case "P":
+                            //Because we have an override of the ToString() method on our Player class,
+                            //that information can be printed to the console simply by passing the 
+                            //Player object into the Console.WriteLine();
+                            Console.WriteLine(player);
+                            break;
+                        case "M":
+                            //TODO: Print Monster stats. (ToString() method)
+                            break;
+                        case "Q":
+                            playerIsFighting = false;
+                            playerIsAlive = false;
+                            break;
+                        default:
+                            Console.WriteLine("Input invalid. Please type a letter from the Menu below and press Enter.");
+                            break;
+                    }
+                    #region Check PLayer Life
+
+                    if (player.Life <= 0)
+                    {
+                        playerIsFighting = false;
+                        playerIsAlive = false;
+                    }
+
+                    //if (score > 15)
+                    //{
+                    //    Console.WriteLine("You Win!");
+                    //    playerIsFighting = false;
+                    //    playerIsAlive = false;
+                    //}                
+
+                    #endregion
+
+                } while (playerIsFighting && playerIsAlive);
+
+                //Re-execute the COMBAT LOOP while the player is still fighting.
+
+                #endregion
+            } while (playerIsAlive);
+            //Re-execute the COMBAT LOOP while the player is still alive.
+            //This will get a new Room and Monster then re-enter the COMBAT LOOP.
+
 
             #endregion
         }//end Main
