@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
+using System.Threading;//Added for easier access to Thread.Sleep()
 using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
     public class Combat
     {
-        //This
+        //This is NOT a datatype class, so we will not have any 
+        //fields, properties, or constructors.  It will simply serve
+        //as a 'warehouse' of methods related to combat.
 
         public static void DoAttack(Character attacker, Character defender)
         {
+            //Get a random number from 1-100
             Random rand = new Random();
             int roll = rand.Next(1, 101);
 

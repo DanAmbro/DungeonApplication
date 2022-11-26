@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    public class Rabbit : Monsters
+    public class Rabbit : Monster
     {
         //Add any unique properties for this Monster.
         public bool IsFluffy { get; set; }

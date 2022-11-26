@@ -49,9 +49,9 @@ namespace DungeonLibrary
         //EXAMPLE: Override CalcBlock() using the unique property 
         public override int CalcBlock()
         {
-            return base.CalcBlock();
+            //return base.CalcBlock();
 
-            //Create an integer to store the calculated Block.
+            //Create an integer to store the calculated Block.            
             int calculatedBlock = Block;//Defaults to the regular Block.
 
             //Create an instance of the Random object.

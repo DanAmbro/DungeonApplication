@@ -17,12 +17,12 @@ namespace DungeonLibrary
 
         public PlayerRace Race { get; set; }
 
-        public Weapon EquippedWeapon { get; set; }
+        public Weapons EquippedWeapon { get; set; }
 
         //CONSTRUCTOR
         //We need to take in all the properties as parameters.
         //EVEN the ones that were inherited from Character.
-        public Player(string name, int hitChance, int block, int maxLife, PlayerRace race, Weapon equippedWeapon) : base (name, hitChance, block, maxLife, Life)
+        public Player(string name, int hitChance, int block, int life, int maxLife, PlayerRace race, Weapons equippedWeapon) : base (name, hitChance, block, maxLife, life)
         {
             //We can borrow the assignments for the inherited properties by using the : base syntax above.
             //Name = name;
@@ -68,9 +68,9 @@ namespace DungeonLibrary
             return damage;
         }
 
-        public override int CalCHitChance()
+        public override int CalcHitChance()
         {
-            return base.CalCHitChance() + EquippedWeapon.BonusHitChance;
+            return base.CalcHitChance() + EquippedWeapon.BonusHitChance;
         }
     }
 }
