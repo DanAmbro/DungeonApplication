@@ -353,8 +353,7 @@ namespace Dungeon
             };
 
             Random roompick = new Random();
-            int room = roompick.Next(roomDescriptions.Length);
-            Console.WriteLine(room);
+            int room = roompick.Next(roomDescriptions.Length);           
 
             string roomDescripts = roomDescriptions[room];
             Console.WriteLine(roomDescripts);
