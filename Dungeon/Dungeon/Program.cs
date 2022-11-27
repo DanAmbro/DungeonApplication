@@ -199,7 +199,9 @@ namespace Dungeon
                 //Create Monster objects
                 Rabbit r1 = new Rabbit();
                 Rabbit r2 = new Rabbit("Buggs", "From the Warner Brothers Region!", 20, 20, 70, 0, 5, 10, true);
-                Vampire v1= new Vampire();
+                Skunk s1 = new Skunk();
+                Skunk s2 = new Skunk("Stinkor", "From Eternia", 25, 25, 65, 0, 5, 15, true);
+                Vampire v1 = new Vampire();
                 Vampire v2 = new Vampire("The Count", "1! Ah, ah, ah. 2! Ah, ah, ah. 3!", 25, 25, 60, 1, 10, 15, false);
                 Turtle t1 = new Turtle();
                 Turtle t2 = new Turtle("Franklin", "He can count by twos and tie his shoes", 10, 10, 50 ,10, 5, 10, 50, 80);
@@ -208,7 +210,9 @@ namespace Dungeon
                 Monster[] monsters =
                 {
                     r1,
-                    r2, r2, r2,
+                    r2, r2, r2, r2, r2,
+                    s1,
+                    s2, s2, s2, s2,
                     v1,
                     v2, v2,
                     t1,
@@ -282,7 +286,8 @@ namespace Dungeon
                             Console.WriteLine(player);
                             break;
                         case "M":
-                            //TODO: Print Monster stats. (ToString() method)
+                            //Print Monster stats. (ToString() method)
+                            Console.WriteLine(monster);
                             break;
                         case "Q":
                             playerIsFighting = false;
@@ -330,19 +335,19 @@ namespace Dungeon
         {
             //Requirements:
             /*
-                1. Create a collection of room descriptions.
-                2. Randomly print one of those room descriptions to the Console.
+             *  1. Create a collection of room descriptions.
+             *   2. Randomly print one of those room descriptions to the Console.
              */
-            Console.WriteLine("Get Room Lab");
-
-            Console.WriteLine();
+            
 
             string[] roomDescriptions =
             {
                  "Barracks",
+                 "Torture Chamber",
                  "Storeroom",
                  "Armoury",
-                 "Mess Hall",
+                 "Infirmary",
+                 "Dining Hall",
                  "Throne Room",
                  
             };
