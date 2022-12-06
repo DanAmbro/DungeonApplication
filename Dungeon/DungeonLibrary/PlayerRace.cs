@@ -9,7 +9,10 @@ namespace DungeonLibrary
     public enum PlayerRace
     {
         Human,
-        Dwarf,
-        Elf
+        Nautolan,
+        Mustafarian,
+        Wookie,
+        Zabrak
+       
     }//end class
 }//end namespace

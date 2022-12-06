@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 namespace DungeonLibrary
 {
     public class Combat
-    {
+    {        
         //This is NOT a datatype class, so we will not have any 
         //fields, properties, or constructors.  It will simply serve
         //as a 'warehouse' of methods related to combat.
 
         public static void DoAttack(Character attacker, Character defender)
-        {
+        {            
             //Get a random number from 1-100
             Random rand = new Random();
             int roll = rand.Next(1, 101);
@@ -44,12 +44,11 @@ namespace DungeonLibrary
                 Console.WriteLine("{0} hit {1} for {2} damage!",
                     attacker.Name, defender.Name, damageDealt);
 
-                Console.ResetColor();       
-
+                Console.ResetColor();               
             }
             else
             {
-                Console.WriteLine("{0} missed!", attacker.Name);
+                Console.WriteLine("{0} missed!", attacker.Name);                
             }
         }
 

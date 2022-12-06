@@ -6,7 +6,7 @@ namespace Dungeon
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, there and wlecome to our world!");
+            Console.WriteLine("Hello, hello? Are you awake? Can you hear the alarm? You seem to have been awaken from the cryo-sleep ahead of schedule. As you look around you see a large room filled with many Cryo-sleep chambers in varius conditions.  Yours has been opened, but seems otherwise undamaged.  As you stumble through the door from the room full of cryo chambers, you enter what appears to be a maintenance room for the chambers.  You try to remember where you are and who you are.   ");
             #region Introduction
             //Print a welcome.
             #endregion
@@ -14,10 +14,12 @@ namespace Dungeon
             #region Create Player       
             
             //Prompt the user to input their name: 
-            Console.WriteLine("What is your Name");
+            Console.WriteLine("Can you remember what your name is?");
 
             //Store the user input in a string.
             string playerName = Console.ReadLine();
+
+            Console.WriteLine("As you look around the maintenance room you see a variety of tools that you could use to try and defend yourself while you figure out what happened.");
 
             /*BONUS: Customizing the weapons.
              * 
@@ -28,9 +30,11 @@ namespace Dungeon
              */
 
             //1) Construct the weapon objects:
-            Weapons sword1 = new Weapons(40, "Broadsword", 5, true, 30, WeaponType.Sword);
-            Weapons bow1 = new Weapons(25, "Longbow", 30, true, 20, WeaponType.Bow); 
-            Weapons axe1 = new Weapons(60, "War Axe", -15, true, 50, WeaponType.Axe);
+            Weapons sword1 = new Weapons(40, "Chainsaw", 5, true, 30, WeaponType.Sword);
+            Weapons bow1 = new Weapons(25, "Nail Gun", 30, false, 20, WeaponType.Bow); 
+            Weapons axe1 = new Weapons(60, "Fireman's Axe", 15, true, 50, WeaponType.Axe);
+            Weapons torch1 = new Weapons(50, "Welding Torch", 20, false, 35, WeaponType.Torch);
+            Weapons club1 = new Weapons(30, "Crowbar", 25, false, 20, WeaponType.Club);
 
             //3a) COUNTER
             bool playerIsChoosingWeapon = true;
@@ -43,9 +47,11 @@ namespace Dungeon
             {
                 //2a) Prompt user input
                 Console.WriteLine("\nChoose your weapon:\n" +
-                    "(S) Broadsword\n" +
-                    "(L) Longbow\n" +
-                    "(A) War Axe\n");
+                    "(S) Chainsaw\n" +
+                    "(L) Nail Gun\n" +
+                    "(A) Fireman's Axe\n" +
+                    "(T) Welding Torch\n" +
+                    "(C) Crowbar\n");
                 //Input prompt is a key instead of a line.
                 //That way the user just has to press the key
                 //instead of typing out a line and pressing enter.
@@ -56,21 +62,31 @@ namespace Dungeon
                 {
                     case ConsoleKey.S://Values are the enumerated values of ConsoleKey
                         playerIsChoosingWeapon = false;//3c) UPDATE
-                        player.EquippedWeapon= sword1;//4a)Assign to sword object.
+                        player.EquippedWeapon = sword1;//4a)Assign to sword object.
                         break;
 
                     case ConsoleKey.L:
                         playerIsChoosingWeapon = false;//3c) UPDATE
-                        player.EquippedWeapon= bow1;//4b)Assign to bow object.
+                        player.EquippedWeapon = bow1;//4b)Assign to bow object.
                         break;
 
                     case ConsoleKey.A:
                         playerIsChoosingWeapon = false;//3c) UPDATE
-                        player.EquippedWeapon= axe1;//4c)Assign to axe object.
+                        player.EquippedWeapon = axe1;//4c)Assign to axe object.
+                        break;
+
+                    case ConsoleKey.T:
+                        playerIsChoosingWeapon = false;//3c) UPDATE
+                        player.EquippedWeapon = torch1;//4c)Assign to torch object.
+                        break;
+
+                    case ConsoleKey.C:
+                        playerIsChoosingWeapon = false;//3c) UPDATE
+                        player.EquippedWeapon = club1;//4c)Assign to club object.
                         break;
 
                     default://If they did not press one of the keys we prompted them to, reload loop
-                        Console.WriteLine("Input was invalid. Please press (S), (L), or (A).");
+                        Console.WriteLine("Input was invalid. Please press (S), (L), (A), (T), or (C).");
                         break;
                 }
 
@@ -89,10 +105,13 @@ namespace Dungeon
             do
             {
                 //1)Prompt user input
-                Console.WriteLine("\nChoose your Race: " +
+                Console.WriteLine("Having the security of a weapon to defend yourself now, you begin to calm a bit.  More memories begin to come back, feeling the tool back in your hands reminds you that you are the mechanic for this ship and eventually the colony on Mars");
+                Console.WriteLine("\nOut in space there are many races on many planets. Can you remember what your race is? " +
                     "\n(H) Human" +
-                    "\n(D) Dwarf" +
-                    "\n(E) Elf");
+                    "\n(M) Mustafarian" +
+                    "\n(N) Nautolan" +
+                    "\n(W) Wookie" +
+                    "\n(Z) Zabrak");
 
                 //Store key input
                 ConsoleKey raceChoice = Console.ReadKey().Key;
@@ -105,23 +124,42 @@ namespace Dungeon
                         playerIsChoosingRace = false;//2c) UPDATE
                         break;
 
-                    case ConsoleKey.D:
-                        player.Race = PlayerRace.Dwarf;//3) Assign based on player input
-                        player.MaxLife = 150;//Custom properties based on race
-                        player.Life = 150;//Custom properties based on race
+                    case ConsoleKey.M:
+                        player.Race = PlayerRace.Mustafarian;//3) Assign based on player input
+                        player.MaxLife = 180;//Custom properties based on race
+                        player.Life = 180;//Custom properties based on race
+                        player.HitChance = 55;
+                        player.Block = 15;
                         playerIsChoosingRace = false;
                         break;
 
-                    case ConsoleKey.E:
-                        player.Race = PlayerRace.Elf;//3) Assign based on player input
-                        player.MaxLife = 70;//Custom properties based on race
-                        player.Life = 70;//Custom properties based on race
+                    case ConsoleKey.N:
+                        player.Race = PlayerRace.Nautolan;//3) Assign based on player input
+                        player.MaxLife = 125;//Custom properties based on race
+                        player.Life = 125;//Custom properties based on race
                         player.Block = 35;//Custom properties based on race
                         playerIsChoosingRace = false;//2c) UPDATE
                         break;
 
+                    case ConsoleKey.W:
+                        player.Race = PlayerRace.Wookie;//3) Assign based on player input
+                        player.MaxLife = 200;//Custom properties based on race
+                        player.Life = 200;//Custom properties based on race
+                        player.HitChance = 85;
+                        playerIsChoosingRace = false;
+                        break;
+
+                    case ConsoleKey.Z:
+                        player.Race = PlayerRace.Zabrak;//3) Assign based on player input
+                        player.MaxLife = 150;//Custom properties based on race
+                        player.Life = 150;//Custom properties based on race
+                        player.HitChance = 75;
+                        player.Block = 20;
+                        playerIsChoosingRace = false;
+                        break;
+
                     default:
-                        Console.WriteLine("Invalid input. Please press (H), (D), or (E).");
+                        Console.WriteLine("Invalid input. Please press (H), (W), or (N).");
                         break;
                 }
 
@@ -185,7 +223,7 @@ namespace Dungeon
                         break;                    
                 };
 
-                Console.ResetColor();
+                Console.ResetColor();                
 
                 //Any code at the top of this loop will execute any time
                 //the player defeats a monster.
@@ -260,7 +298,7 @@ namespace Dungeon
                                 Console.WriteLine("\nYou killed {0}", monster.Name);
 
                                 //Make sure to reset the color of the Console afterwards.
-                                Console.ResetColor();
+                                Console.ResetColor();                                
 
                                 //Increment the score by one.
                                 score++;

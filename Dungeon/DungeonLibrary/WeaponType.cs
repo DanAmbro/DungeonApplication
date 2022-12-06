@@ -10,6 +10,8 @@ namespace DungeonLibrary
     {
         Sword,
         Bow,
-        Axe
+        Axe,
+        Torch,
+        Club
     }
 }

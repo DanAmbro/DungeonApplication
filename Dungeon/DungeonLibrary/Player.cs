@@ -46,11 +46,17 @@ namespace DungeonLibrary
                 case PlayerRace.Human:
                     raceDescription = "A normal dude.";
                     break;
-                case PlayerRace.Elf:
-                    raceDescription = "A regal, magical being.";
+                case PlayerRace.Nautolan:
+                    raceDescription = "A regal being, that can be strong with the force.";
                     break;
-                case PlayerRace.Dwarf:
-                    raceDescription = "AND MY AXE!";
+                case PlayerRace.Mustafarian:
+                    raceDescription = "A race that can take the heat.";
+                    break;
+                case PlayerRace.Wookie:
+                    raceDescription = "Always bet on the Wookie!";
+                    break;
+                case PlayerRace.Zabrak:
+                    raceDescription = "Can be easily turned to the dark side!";
                     break;
             }
 
