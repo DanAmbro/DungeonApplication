@@ -159,9 +159,10 @@ namespace Dungeon
                         break;
 
                     default:
-                        Console.WriteLine("Invalid input. Please press (H), (W), or (N).");
+                        Console.WriteLine("Invalid input. Please press (H), (M), (N), (W) or (Z).");
                         break;
                 }
+                
 
             } while (playerIsChoosingRace);//2b) CONDITION
 
@@ -235,26 +236,30 @@ namespace Dungeon
                 GetRoom();
 
                 //Create Monster objects
-                Rabbit r1 = new Rabbit();
-                Rabbit r2 = new Rabbit("Buggs", "From the Warner Brothers Region!", 20, 20, 70, 0, 5, 10, true);
-                Skunk s1 = new Skunk();
-                Skunk s2 = new Skunk("Stinkor", "From Eternia", 25, 25, 65, 0, 5, 15, true);
-                Vampire v1 = new Vampire();
-                Vampire v2 = new Vampire("The Count", "1! Ah, ah, ah. 2! Ah, ah, ah. 3!", 25, 25, 60, 1, 10, 15, false);
-                Turtle t1 = new Turtle();
-                Turtle t2 = new Turtle("Franklin", "He can count by twos and tie his shoes", 10, 10, 50 ,10, 5, 10, 50, 80);
+                Tribble t1 = new Tribble();
+                Tribble t2 = new Tribble("Tribble", "Found on Station K-7, Watch out for over-multiplying", 25, 25, 70, 0, 5, 5, true);
+                ConduitWorm c1 = new ConduitWorm();
+                ConduitWorm c2 = new ConduitWorm("Conduit Worm", "They are a problem on Coruscant", 35, 35, 50, 10, 5, 10, 10, 10);
+                StoneMite s1 = new StoneMite();
+                StoneMite s2 = new StoneMite("Stone Mite", "They eat metal, not stone", 35, 35, 75, 0, 5, 15, true);
+                Mynock m1 = new Mynock();
+                Mynock m2 = new Mynock("Mynock", "Han Solo hated these things.", 25, 25, 50, 5, 10, 15, false);
+                Fyrnock f1 = new Fyrnock();
+                Fyrnock f2 = new Fyrnock("Fyrnock", "They hide in the shadows", 40, 40, 55 ,15, 5, 10, 15, 10);
 
                 //Add the Monsters to a Collection:
                 Monster[] monsters =
                 {
-                    r1,
-                    r2, r2, r2, r2, r2,
-                    s1,
-                    s2, s2, s2, s2,
-                    v1,
-                    v2, v2,
                     t1,
-                    t2,
+                    t2, t2, t2, t2, t2, t2, t2, t2,
+                    c1,
+                    c2, c2, c2, c2, c2, c2, c2, 
+                    s1,
+                    s2, s2, s2, s2, s2,
+                    m1,
+                    m2, m2,m2,
+                    f1,
+                    f2, f2, f2, 
                 };
 
                 //Pick one at random to place in the room.

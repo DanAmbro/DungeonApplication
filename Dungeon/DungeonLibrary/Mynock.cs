@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 namespace DungeonLibrary
 {
     //Inheritance:
-    public class Vampire : Monster
+    public class Mynock : Monster
     {
         //Unique Props:
-        public bool IsShiny { get; set; }
+        public bool IsSurging { get; set; }
         public DateTime HourChangeBack { get; set; }
 
         //Constructor with one unique prop:
-        public Vampire(string name, string description, int life, int maxLife, int hitChance, int block, 
-            int minDamage, int maxDamage, bool isShiny) 
+        public Mynock(string name, string description, int life, int maxLife, int hitChance, int block, 
+            int minDamage, int maxDamage, bool isSurging) 
             : base(name, description, hitChance, block, life, maxLife, minDamage, maxDamage)
         {
             HourChangeBack = DateTime.Now;//Default value for unique prop.
-            IsShiny = isShiny;
+            IsSurging = isSurging;
 
             //EXAMPLE: Using a unique property to affect the assignment of the inherited properties:
             //At night, our vampire becomes significantly more dangerous.
@@ -33,18 +33,18 @@ namespace DungeonLibrary
         }
 
         //Empty Constructor
-        public Vampire()//takes in no parameters! 
+        public Mynock()//takes in no parameters! 
         {
             //But we still assign all the properties.
-            Name = "Edward";
-            Description = "The love of my life";
+            Name = "Surging Mynock";
+            Description = "A Mynock full of energy from the ship!";
             MaxLife = 70;
-            Life = 60;
-            HitChance = 90;
+            Life = 70;
+            HitChance = 70;
             Block = 0;
             MinDamage = 20;
             MaxDamage = 30;
-            IsShiny = true;
+            IsSurging = true;
 
             //Make sure to assign the default:
             HourChangeBack = DateTime.Now;//Calculated at the time of constructing the object.
@@ -69,27 +69,27 @@ namespace DungeonLibrary
                                                                 //than 18  (6pm)...                  
             {
                 //Store a string indicating the increase in stats on Lines 26-32.
-                strengthString = "The ominous glow of the moon strengthens this creature.";
+                strengthString = "The ominous glow of power strengthens this creature.";
             }
             else
             {
                 //Otherwise, store a string indicating that bonus is not applied.
-                strengthString = "The bright rays of the sun are weakening this creature.";
+                strengthString = "The surge of power has worn off this creature.";
             }
 
             //Create a string to store the results of our calculation.
-            string shinyString = "";
+            string surgingString = "";
 
-            if (IsShiny)//If the vampire is Shiny...
+            if (IsSurging)//If the vampire is Shiny...
             {
                 //Add some flavor text.
-                shinyString = "\nThis vampire sparkles in the light. How mesmerising and beautiful!";
+                surgingString = "\nThis mynock is surging with power!";
             }
 
-            //If the vampire is not shiny, it's defaulting to an empty string.
+            //If the mynock is not surging, it's defaulting to an empty string.
 
             //Concatenate our flavor text to the base ToString().
-            return base.ToString() + $"\n{strengthString}" + $"{shinyString}";
+            return base.ToString() + $"\n{strengthString}" + $"{surgingString}";
         }
     }
 }

@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    public class Turtle : Monster
+    public class ConduitWorm : Monster
     {
         //Inherit from Monster ^
 
-        //Add unique properties 
+        //Add not so unique properties 
         public int BonusBlock { get; set; }
         public int HidePercent { get; set; }
 
         //Add those unique properties to the parameters of the constructor:
-        public Turtle(string name, string description, int life, int maxLife, int hitChance, int block,
-            int minDamage, int maxDamage, int bonusBlock, int hidePercent) : base(name, description, hitChance, 
+        public ConduitWorm(string name, string description, int life, int maxLife, int hitChance, int block,
+            int minDamage, int maxDamage, int bonusBlock, int hidePercent) : base(name, description, hitChance,
                 block, life, maxLife, minDamage, maxDamage)
         {
             //Assign the unique properties
@@ -25,18 +25,18 @@ namespace DungeonLibrary
         }
 
         //EXAMPLE: Default values with an empty ctor
-        public Turtle() 
+        public ConduitWorm()
         {
-            Name = "Michaelangelo";
-            Description = "Turtle Power!";
-            MaxLife = 70;
-            Life = 70;
-            HitChance = 60;
-            Block = 15;
-            MinDamage = 20;
-            MaxDamage = 30;
-            BonusBlock = 20;
-            HidePercent = 25;
+            Name = "Condiuit Worm Alpha";
+            Description = "This may have started the species";
+            MaxLife = 60;
+            Life = 60;
+            HitChance = 55;
+            Block = 20;
+            MinDamage = 15;
+            MaxDamage = 25;
+            BonusBlock = 30;
+            HidePercent = 30;
         }
 
         //EXAMPLE: Override the ToString() using the unique property
@@ -81,7 +81,7 @@ namespace DungeonLibrary
             //Return the calculated Block! For the default turtle, if they didn't roll 1-25,
             //they'll get the base Block of 15.
             return calculatedBlock;
-            
+
         }
     }
 }
